@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function ImageShow() {
+export default function ImageShow({ image }) {
   return (
-    <div>
-      ImageShow
+    <div >
+      {image.id}
     </div>
   )
-}
+} 

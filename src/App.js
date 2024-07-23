@@ -1,13 +1,20 @@
 
+import { useState } from 'react';
+import searchImages from './components/api';
 import SearchBar from './components/SearchBar'
-function App() {
+import ImageList from './components/ImageList';
 
-  const hundleSubmit = (term) => {
-    console.log('do a search with terme ', term);
+function App() {
+  const [images, setimages] = useState([]);
+
+  const hundleSubmit = async (term) => {
+    const result = await searchImages(term);
+    setimages(result);
   };
   return (
     <div>
       <SearchBar onSubmit={hundleSubmit} />
+      <ImageList images={images} />
     </div>
   );
 }
